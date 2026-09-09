@@ -1,0 +1,51 @@
+.columnToggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.columnToggle-label {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  min-width: 60px;
+  height: 34px;
+}
+
+.columnToggle-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.columnToggle-slider {
+  position: absolute;
+  inset: 0;
+  transition: 0.4s;
+  border-radius: 34px;
+  border: 1px solid var(--text);
+  background-color: var(--button-active);
+  cursor: pointer;
+}
+
+.columnToggle-slider::before {
+  display: flex;
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  justify-content: center;
+  transition: 0.4s;
+  border-radius: 50%;
+  background-color: var(--icon-alt);
+  width: 26px;
+  height: 26px;
+  color: var(--text);
+  font-weight: bold;
+  content: attr(data-before);
+}
+
+.columnToggle-checkbox:checked + .columnToggle-slider::before {
+  transform: translateX(26px);
+}
