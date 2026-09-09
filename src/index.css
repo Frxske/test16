@@ -1,0 +1,800 @@
+#no-owlbear {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+#no-owlbear main {
+  width: 100%;
+  max-width: 631px;
+  height: 650px;
+}
+
+@media only screen and (width <=480px) {
+  #no-owlbear main {
+    align-self: flex-start;
+  }
+
+  #upload-button,
+  #download-button {
+    display: none;
+  }
+}
+
+@media only screen and (width <=506px) {
+  #toggle-button {
+    display: none;
+  }
+}
+
+#no-owlbear main:has(> .dashboard) {
+  align-self: flex-start;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  margin-top: 0;
+}
+
+input,
+button,
+h1,
+h2,
+h3,
+p {
+  margin: 0.5rem;
+}
+
+input {
+  background-color: var(--input-background);
+  color: var(--text);
+  border: 1px solid var(--input-border);
+  border-radius: 2px;
+}
+
+input:focus-visible {
+  outline: 2px solid var(--input-border);
+}
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+:root {
+  background-color: var(--bg);
+  text-rendering: optimizelegibility;
+  line-height: 1.5;
+  color: var(--text);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-size-adjust: 100%;
+}
+
+h1 {
+  line-height: 1.1;
+  font-size: 3.2em;
+}
+
+button {
+  transition:
+    border-color 0.5s,
+    background-color 0.25s;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  min-height: 38px;
+  line-height: 0;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+button:hover {
+  border-color: var(--button-hover);
+}
+
+button:active {
+  background-color: var(--button-hover);
+  color: var(--button-active-text);
+}
+
+.react-grid-layout {
+  margin-top: 0.25rem;
+  border: 5px solid transparent;
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  background-color: var(--grid-bg);
+}
+
+.react-grid-layout .react-grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -5px;
+  margin-left: -5px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--grid-item-bg);
+  padding: 0.25rem;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  border-right: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+
+.react-grid-layout .react-grid-item #delete-widget {
+  display: flex;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#locked-dash .react-grid-layout .react-grid-item #delete-widget {
+  display: none;
+}
+
+.react-grid-layout
+  .react-grid-item#add-widget
+  > .react-resizable-handle::after {
+  display: none;
+}
+
+.react-grid-layout .react-grid-item#add-widget > .react-resizable-handle {
+  display: none;
+}
+
+.editable-md-widget {
+  --basePageBg: var(--grid-item-bg);
+  --admonitionTipBg: hsl(187deg 71% 88% / 50%);
+  --admonitionTipBorder: hsl(189deg 60% 53% / 50%);
+  --admonitionInfoBg: hsl(123deg 45% 90% / 50%);
+  --admonitionInfoBorder: hsl(131deg 38% 56% / 50%);
+  --admonitionCautionBg: hsl(50deg 100% 81% / 50%);
+  --admonitionCautionBorder: hsl(38deg 75% 55% / 50%);
+  --admonitionDangerBg: hsl(358deg 100% 93% / 50%);
+  --admonitionDangerBorder: hsl(359deg 70% 74% / 50%);
+  --admonitionNoteBg: hsl(240deg 10% 92% / 50%);
+  --admonitionNoteBorder: hsl(231deg 10% 75% / 50%);
+
+  padding: 0;
+  caret-color: var(--caret-color);
+}
+
+/* Border Radius of Admonitions */
+.editable-md-widget [data-lexical-decorator="true"] > div {
+  border-radius: 6px;
+}
+
+.mdxeditor-popup-container {
+  z-index: 5 !important;
+}
+
+/* Had to override dynamically applied Link Dialog styles, to keep the link dialog in one place. */
+.mdxeditor-popup-container > div:has(div[class^="_linkDialogPopoverContent"]) {
+  top: 90vh !important;
+  left: 8px !important;
+  transform: none !important;
+}
+
+/* Shifting the location of the link dialog when it's open */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"]):has(form) {
+  top: 63vh !important;
+  left: 8px !important;
+  transform: none !important;
+}
+
+.mdxeditor-popup-container[class^="._popupContainer"] {
+  z-index: 5 !important;
+}
+
+
+/* Styling the Link Dialog */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"])
+  > div {
+  border: 3px solid var(--border);
+  background-color: var(--link-dialog-bg);
+}
+
+/* Style the displayed link in the Closed Link Dialog  */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"])
+  > div
+  a[class^="_linkDialogPreviewAnchor"] {
+  color: var(--border);
+}
+
+/* Style the other icons in the Closed Link Dialog */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"])
+  > div
+  button[class^="_actionButton"]
+  > svg {
+  color: var(--border);
+}
+
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"])
+  > div
+  button[class^="_actionButton"] {
+  margin: 0;
+}
+
+/* Style the Url Link in the Closed Link Dialog */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"])
+  > div
+  a[class^="_linkDialogPreviewAnchor"] {
+  border: 2px solid transparent;
+  border-radius: var(--radius-medium);
+  padding: 0.25rem;
+  transition: border 0.4s ease;
+}
+
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"])
+  > div
+  a[class^="_linkDialogPreviewAnchor"]:hover {
+  border: 2px solid var(--border);
+}
+
+/* Style the Text Labels in the Open Link Dialog */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"]):has(form)
+  label {
+  color: var(--link-dialog-label);
+}
+
+/* Style the button borders of the Open Link Dialog */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"]):has(form)
+  button {
+  border: none;
+}
+
+/* Style the background color of the submit button of the Open Link Dialog */
+.mdxeditor-popup-container
+  > div:has(div[class^="_linkDialogPopoverContent"]):has(form)
+  button[type="submit"] {
+  background-color: var(--link-submit-bg-color);
+}
+
+/* Remove the text highlighting when the link dialog is open. Wasn't lining up with the text correctly. */
+
+/* This also gets rid of the link dialog caret */
+.mdxeditor div[class^="_linkDialogAnchor"] {
+  display: none;
+}
+
+.editable-md-widget span,
+.editable-md-widget strong,
+.editable-md-widget em {
+  color: var(--text);
+}
+
+.editable-md-widget code span,
+.editable-md-widget code strong,
+.editable-md-widget code em {
+  background-color: var(--code-bg);
+  color: var(--text-alt);
+}
+
+.editable-md-widget blockquote {
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  margin-left: 0.5em;
+  border-left: 3px solid var(--blockquote-accent-color);
+  padding-left: 1em;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.editable-md-widget h1 + p:has(br),
+.editable-md-widget h2 + p:has(br),
+.editable-md-widget h3 + p:has(br),
+.editable-md-widget h4 + p:has(br),
+.editable-md-widget h5 + p:has(br),
+.editable-md-widget h6 + p:has(br),
+.editable-md-widget ul + p:has(br),
+.editable-md-widget ol + p:has(br) {
+  display: none;
+}
+
+.editable-md-widget h1 + p:has([data-tooltip-id]) {
+  display: block;
+}
+
+.editable-md-widget div[class="_editImageToolbar_1e2ox_933"] {
+  display: none;
+}
+
+.editable-md-widget li[role="checkbox"] {
+  text-decoration: none;
+}
+
+.editable-md-widget li[role="checkbox"]::before {
+  top: 3px;
+}
+
+.editable-md-widget li[role="checkbox"]::after {
+  top: 6px;
+}
+
+.editable-md-widget ul,
+.editable-md-widget ol {
+  color: var(--text);
+}
+
+.editable-md-widget a {
+  text-decoration: none;
+}
+
+.editable-md-widget a span,
+.editable-md-widget a strong,
+.editable-md-widget a em {
+  cursor: pointer;
+  color: var(--link);
+  font-weight: bold;
+}
+
+.editable-md-widget a span:hover,
+.editable-md-widget a strong:hover,
+.editable-md-widget a em:hover {
+  color: var(--link-hover);
+}
+
+.editable-md-widget hr {
+  border-color: var(--border);
+}
+
+.editable-md-widget th,
+.editable-md-widget td {
+  --baseBgActive: var(--border);
+}
+
+.editable-md-widget li[role="checkbox"] {
+  --accentSolid: var(--checkbox-accent-solid);
+  --accentBorder: var(--border);
+}
+
+*[class^="_tableEditor"] *[class^="_tableColumnEditorTrigger"],
+*[class^="_tableEditor"] *[class^="_tableRowEditorTrigger"],
+*[class^="_tableEditor"] *[class^="_addRowButton"],
+*[class^="_tableEditor"] *[class^="_addColumnButton"],
+*[class^="_tableEditor"] *[class^="_iconButton"] {
+  opacity: 0;
+}
+
+.react-grid-layout .react-grid-item#add-widget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s;
+  background-color: var(--add-item-background-color);
+}
+
+.react-grid-layout .react-grid-item#add-widget:hover {
+  background-color: var(--add-item-hover);
+}
+
+.react-grid-layout .react-grid-item#add-widget:active {
+  background-color: var(--add-item-active);
+}
+
+.react-grid-item {
+  overflow: clip;
+}
+
+.react-grid-item > div {
+  min-width: 4px;
+}
+
+.react-grid-item img {
+  width: 100%;
+  height: auto;
+}
+
+.react-grid-item [data-editor-block-type="image"] button {
+  display: none;
+}
+
+.mdxeditor-toolbar {
+  display: none;
+}
+
+#editor-toolbar button {
+  margin-right: 0.25rem;
+}
+
+/* loading animation styles */
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  border-radius: 50%;
+  background: var(--text);
+  width: 13px;
+  height: 13px;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+#dice-box,
+#dice-result-sharing-box {
+  position: fixed;
+  z-index: 202;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#dice-box .displayResults .results,
+#dice-result-sharing-box .displayResults .results {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border: 2px solid var(--dice-display-border);
+  background: var(--dice-display-background);
+  color: var(--text);
+}
+
+#dice-result-sharing-box .displayResults .results {
+  bottom: -20px;
+  left: -30px;
+  transform: scale(0.7);
+}
+
+#dice-box .displayResults .results button,
+#dice-result-sharing-box .displayResults .results button {
+  position: absolute;
+  top: -58px;
+  left: -10px;
+  border: 2px solid var(--dice-display-border);
+  background: var(--dice-display-background);
+  width: max-content;
+  font-size: 0.75rem;
+}
+
+#dice-result-sharing-box .displayResults .results .player-name {
+  position: absolute;
+  top: -36px;
+  left: -11px;
+  border: 2px solid var(--dice-display-border);
+  border-radius: 8px;
+  background: var(--dice-display-background);
+  padding: 0 0.5rem;
+  width: max-content;
+  font-size: 1rem;
+}
+
+#dice-box .displayResults .results button:hover,
+#dice-result-sharing-box .displayResults .results button:hover {
+  background: var(--dice-display-hover);
+}
+
+#dice-box .displayResults .results button svg,
+#dice-result-sharing-box .displayResults .results button svg {
+  width: 30px;
+  fill: var(--dice-display-background);
+}
+
+#dice-box .displayResults .results button svg path,
+#dice-result-sharing-box .displayResults .results button svg path {
+  width: 30px;
+  stroke: var(--dice-display-border);
+}
+
+#dice-box .displayResults .results .dice-result-label,
+#dice-result-sharing-box .displayResults .results .dice-result-label {
+  padding-left: 0.5rem;
+  color: var(--dice-label);
+}
+
+#dice-box .displayResults .results .mod-positive,
+#dice-box .displayResults .results .mod-multiply {
+  color: var(--success);
+  font-size: 1.25rem;
+}
+
+#dice-result-sharing-box .displayResults .results .mod-positive,
+#dice-result-sharing-box .displayResults .results .mod-multiply {
+  color: var(--success);
+  font-size: 1.25rem;
+}
+
+#dice-box .displayResults .results .mod-negative,
+#dice-box .displayResults .results .mod-divide {
+  color: var(--failure);
+  font-size: 1.25rem;
+}
+
+#dice-result-sharing-box .displayResults .results .mod-negative,
+#dice-result-sharing-box .displayResults .results .mod-divide {
+  color: var(--failure);
+  font-size: 1.25rem;
+}
+
+#dice-box .displayResults .results .crit-success,
+#dice-result-sharing-box .displayResults .results .crit-success {
+  color: var(--success);
+}
+
+#dice-box .displayResults .results .crit-success svg,
+#dice-result-sharing-box .displayResults .results .crit-success svg {
+  fill: var(--success);
+}
+
+#dice-box
+  > .displayResults
+  > .results.showEffect
+  > span:not(.crit-success)
+  > svg.success {
+  fill: var(--success);
+}
+
+#dice-box
+  > .displayResults
+  > .results.showEffect
+  > span:not(.crit-failure)
+  > svg.failure {
+  fill: var(--failure);
+}
+
+#dice-box .displayResults .results .crit-failure,
+#dice-result-sharing-box .displayResults .results .crit-failure {
+  color: var(--failure);
+}
+
+#dice-box .displayResults .results .crit-failure svg,
+#dice-result-sharing-box .displayResults .results .crit-failure svg {
+  fill: var(--failure);
+}
+
+#dice-box .displayResults .results strong[data-success="true"],
+#dice-result-sharing-box .displayResults .results strong[data-success="true"] {
+  color: var(--success);
+}
+
+#dice-box .displayResults .results strong[data-success="false"],
+#dice-result-sharing-box .displayResults .results strong[data-success="false"] {
+  color: var(--failure);
+}
+
+#dice-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.editable-md-widget .dice-notation {
+  cursor: pointer;
+  color: var(--link);
+  font-weight: bold;
+}
+
+.editable-md-widget .dice-notation:hover {
+  color: var(--link-hover);
+}
+
+.editable-md-widget .tooltip-trigger {
+  cursor: pointer;
+  color: var(--link);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  text-decoration-skip-ink: auto;
+}
+
+.editable-md-widget .tooltip-trigger:hover {
+  color: var(--link-hover);
+}
+
+.file-system {
+  background-color: unset;
+  height: auto;
+}
+
+.file-system.react-grid-layout {
+  margin-top: 0;
+}
+
+.file-system .react-grid-item {
+  transition:
+    border-color 0.5s,
+    background-color 0.5s,
+    opacity 0.5s;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  max-width: 204px;
+  line-height: 0;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.file-system .react-grid-item:hover {
+  border-color: var(--button-hover);
+}
+
+.file-system .react-grid-item:active {
+  background-color: var(--button-active);
+}
+
+.file-system .react-grid-placeholder {
+  background-color: var(--grid-placeholder);
+  padding: 0;
+}
+
+.file-system .react-grid-item.folder {
+  box-sizing: border-box;
+  background-color: var(--folder);
+}
+
+.file-system .react-grid-item.folder:hover {
+  border-color: var(--folder-hover);
+}
+
+.file-system .react-grid-item.folder:active {
+  background-color: var(--folder-active);
+}
+
+.file-system .react-grid-item.moveFolderUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--up-folder);
+}
+
+.file-system .react-grid-item.moveFolderUp:hover {
+  border-color: var(--up-folder-hover);
+}
+
+.file-system .react-grid-item.moveFolderUp img {
+  width: 26px;
+}
+
+.file-system .react-grid-item svg {
+  fill: var(--text);
+}
+
+.icon-svg path,
+.icon-svg circle,
+.icon-svg line {
+  stroke: var(--icon);
+}
+
+.icon-svg-logo path {
+  fill: var(--primary-8);
+}
+
+.icon-svg-fire path {
+  stroke: var(--fire);
+  fill: var(--fire);
+}
+
+.icon-svg-share path {
+  fill: var(--share-blue);
+}
+
+.icon-svg-folder path {
+  fill: var(--text);
+}
+
+.icon-svg-dash-menu path {
+  fill: var(--icon);
+}
+
+.icon-svg-back path {
+  stroke: var(--icon);
+}
+
+.icon-svg-download path {
+  stroke: var(--icon);
+}
+
+.icon-svg-text-align path {
+  fill: var(--icon);
+}
+
+.icon-svg-add-item path {
+  fill: var(--add-items-icon);
+  stroke: var(--add-items-icon);
+}
+
+.icon-svg-cross path {
+  fill: var(--border);
+  stroke: var(--border);
+}
+
+.icon-svg-info {
+  color: var(--icon);
+}
+
+.icon-svg-info circle,
+.icon-svg-info line {
+  stroke: var(--icon);
+}
+
+html body[data-scroll-locked] {
+  padding: 0;
+  margin: 0 8px 8px 8px !important;
+}

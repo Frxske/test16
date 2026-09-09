@@ -1,0 +1,91 @@
+.pop-over h1 img {
+  position: relative;
+  top: 4px;
+  width: 44px;
+  height: auto;
+}
+
+.pop-over h1 {
+  margin-right: 6.25rem;
+}
+
+@media (max-width: 600px) {
+  .pop-over h1 {
+    font-size: 2.75rem;
+  }
+}
+
+.pop-over h3 {
+  font-weight: 100;
+}
+
+.dashboard-creator {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-creator input {
+  height: 2rem;
+  font-size: 1.25rem;
+}
+
+.premade-dashboards button {
+  font-size: 0.75rem;
+}
+
+.premade-dashboards [data-title="5e Premades"] {
+  margin-top: 0;
+}
+
+.dashboard-input {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-input input[name="dashboardName"] {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.dashboard-input-selections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-input-selections button {
+  width: 50%;
+}
+
+.dashboard-input-selections button svg {
+  fill: var(--text);
+}
+
+.dashboard-info-link {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.info-menus-container {
+  position: absolute;
+  top: 20px;
+  right: 14px;
+  display: flex;
+  gap: 8px;
+
+  &:has(*[data-state="open"]) {
+    transform: translate(8px, -8px);
+  }
+}
+
+@media (max-width: 600px) {
+  .info-menus-container {
+    top: 13px;
+  }
+}
+
+
+body:has(div[role="dialog"]) .info-menus-container {
+  transform: translate(8px, -8px);
+}

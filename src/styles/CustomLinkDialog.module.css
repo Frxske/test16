@@ -1,0 +1,126 @@
+.primaryButton,
+.secondaryButton {
+  border: 1px solid var(--accentBorder);
+  border-radius: var(--radius-medium);
+  background-color: var(--accentSolidHover);
+  padding: var(--spacing-2) var(--spacing-3);
+  color: var(--baseBase);
+  font-size: var(--text-xs);
+
+  &:disabled {
+    border-color: var(--accentBg);
+    background: var(--accentLine);
+  }
+}
+
+.secondaryButton {
+  border: 1px solid var(--baseBorder);
+  background-color: var(--baseSolidHover);
+  color: var(--baseBase);
+}
+
+.linkDialogEditForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  align-items: stretch;
+  padding: 0;
+}
+
+.linkDialogAnchor {
+  position: fixed;
+  z-index: -1;
+  background-color: highlight;
+
+  &[data-visible="true"] {
+    visibility: visible;
+  }
+
+  &[data-visible="false"] {
+    visibility: hidden;
+  }
+}
+
+.linkDialogPopoverContent,
+.tableColumnEditorPopoverContent,
+.dialogContent {
+  display: flex;
+  gap: var(--spacing-0_5);
+  align-items: center;
+  border: 1px solid var(--baseBg);
+  border-radius: var(--radius-medium);
+  background-color: var(--basePageBg);
+  padding: var(--spacing-1) var(--spacing-1);
+  font-size: var(--text-sm);
+}
+
+.popoverArrow {
+  fill: var(--basePageBg);
+}
+
+.linkDialogPreviewAnchor {
+  display: flex;
+  align-items: center;
+  margin-right: var(--spacing-1);
+  border: 1px solid transparent;
+  text-decoration: none;
+  color: var(--accentText);
+
+  & span {
+    max-width: 14rem;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--accentSolidHover);
+    }
+  }
+}
+
+.tooltipContent {
+  position: relative;
+  z-index: 2;
+  border-radius: var(--radius-medium);
+  background-color: var(--baseText);
+  padding: var(--spacing-1) var(--spacing-2);
+  color: var(--baseBase);
+  font-size: var(--text-xs);
+
+  & svg {
+    fill: var(--baseText);
+  }
+}
+
+.actionButton {
+  border-radius: var(--radius-medium);
+  padding: var(--spacing-1) var(--spacing-1);
+  color: var(--baseTextContrast);
+}
+
+.textInput {
+  all: unset;
+  border: 1px solid var(--baseBorder);
+  border-radius: var(--radius-base);
+  background-color: var(--baseBase);
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+form.multiFieldForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2);
+
+  .formField {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+
+    & label {
+      font-size: var(--text-xs);
+    }
+  }
+}

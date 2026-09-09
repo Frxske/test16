@@ -1,0 +1,57 @@
+import "@mdxeditor/editor/style.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+import App from "./App.tsx";
+import { AppProvider } from "./AppProvider.tsx";
+import { MODE_KEY, THEME_KEY } from "./constants/dbKeys";
+import db from "./dbInstance";
+import "./dbInstance.ts";
+import "./index.css";
+import "./styles/theme.css";
+
+const themeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+let firstCall = true;
+
+const setMode = async (e: MediaQueryList | MediaQueryListEvent) => {
+  let mode = null;
+
+  if (firstCall) {
+    mode = (await db.getItem(MODE_KEY)) as string;
+  }
+
+  if (mode && firstCall) {
+    document.documentElement.setAttribute("data-mode", mode);
+    firstCall = false;
+  } else {
+    document.documentElement.setAttribute(
+      "data-mode",
+      e.matches ? "dark" : "light",
+    );
+  }
+};
+
+const setTheme = async () => {
+  const theme = (await db.getItem(THEME_KEY)) as string;
+  if (theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+  } else {
+    document.documentElement.setAttribute("data-theme", "default");
+  }
+};
+
+setMode(themeQuery);
+setTheme();
+themeQuery.addEventListener("change", setMode);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <AppProvider>
+      <App />
+    </AppProvider>
+    <Analytics />
+    <SpeedInsights />
+  </React.StrictMode>,
+);
